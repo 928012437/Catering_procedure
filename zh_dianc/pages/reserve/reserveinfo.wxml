@@ -1,0 +1,71 @@
+<!--pages/reserveinfo/reserveinfo.wxml-->
+<view class='font'>
+  <view class='re_header' style="background:{{color}}">
+    <view class='re_header_img'>
+      <image src='{{imglink}}{{yyinfo.logo}}' class='re_header_image'></image>
+    </view>
+    <view class='re_header_order'>预约信息确认中</view>
+  </view>
+
+  <view class='re_content'>
+    <view class='content_title'>
+      <view>{{yyinfo.name}}</view>
+      <image src='../images/huise@2x.png' class='content_img'></image>
+    </view>
+    <view class='content_info'>
+      <view>预约时间：{{yyinfo.xz_date}} {{yyinfo.yjdd_date}}</view>
+      <view>就餐人数：{{yyinfo.jc_num}}</view>
+      <view>桌子类型：{{yyinfo.table_type_name}}-最低消费{{yyinfo.zd_cost}}元</view>
+      <view>联系人：{{yyinfo.link_name}}</view>
+      <view>电话：{{yyinfo.link_tel}}</view>      
+      <view>备注：{{yyinfo.remark}}</view>
+    </view>
+  </view>
+
+  <view class='re_info'>
+    <view class='info_title'>预约详情</view>
+    <view class='info_order'>
+      <view class='info_box'>
+        <view class='info_menu'>预约信息发送成功</view>
+        <view class='info_success'>{{yyinfo.created_time}}</view>
+        <view class='info_yuan'></view>
+      </view>
+      <view class='info_box'>
+        <view class='info_menu'>预约信息确认中</view>
+        <view class='info_success'>{{yyinfo.created_time}}</view>
+        <view class='info_yuan' style='background-color:#FF9527'></view>
+      </view>
+      <view class='info_box'>
+        <view class='info_menu'>预约成功</view>
+        <view class='info_success'></view>
+        <view class='info_yuan'></view>
+      </view>
+    </view>
+    
+  </view>
+  <!--固定部分  -->
+    <view class='footer'>
+      <view class='info_cancel' bindtap='cancel' style="color:{{color}};border:1rpx solid {{color}}">取消预约</view>
+      <view class='info_tel' catchtap="call_phone" style="background:{{color}}">联系商家</view>
+      <!-- <modal title="你确定吗？" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="modalChange" bindcancel="modalcancel">
+        这是对话的内容 
+      </modal> -->
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<form bindsubmit="formSubmit" report-submit="true">
+  <view class="font">
+    <view class='reserve'>
+      <view class='flex reserve_type'>
+        <view>选择日期</view>
+        <view class='reserve_date'>
+          <!-- <view class='reserve_sele'>请选择</view> -->
+          <picker mode="date" value="{{date}}" name='datepicker' start="{{date}}" end="" bindchange="bindDateChange">
+            <view class="picker reserve_sele">{{date}}</view>
+          </picker>
+          <image class='reserve_arrow' src='../images/huise@2x.png'></image>
+        </view>
+      </view>
+
+      <view class='flex reserve_type'>
+        <view>预计到店时间</view>
+        <view class='reserve_date'>
+          <picker mode="time" value="{{time}}" name='timepicker' start="09:01" end="21:01" bindchange="bindTimeChange">
+            <view class="picker">{{time}}</view>
+          </picker>
+          <image class='reserve_arrow' src='../images/huise@2x.png'></image>
+        </view>
+      </view>
+      <view class="">
+        <view class="flex reserve_type {{item.open ? 'kind-list__item-hd_show' : ''}}" style='border:none;'>
+          <view>选择桌位类型</view>
+          <view class='reserve_date'>
+            <view class='reserve_tab'>
+              <!-- <view>大桌</view>
+            <view class='reserve_sele'>最低消费300元</view> -->
+              <picker bindchange="bindPickerChange"  name='zwpicker' range-key='name' value="{{array[index]}}" range="{{array}}">
+                <view class="picker reserve_sele">{{array[index].name}}-最低消费{{array[index].zd_cost}}</view>
+              </picker>
+            </view>
+            <image class='reserve_arrow' src='../images/huise@2x.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='reserve'>
+      <view class='reserve_type reserve_man'>
+        <view class='reserve_num'>联系人</view>
+        <input placeholder-style='color: #999;font-size: 30rpx;' name='lxr' class='reserve_inp' placeholder='请输入联系人称呼' />
+      </view>
+      <view class='reserve_type reserve_man'>
+        <view class='reserve_num'>就餐人数</view>
+        <input placeholder-style='color: #999;font-size: 30rpx;' name='jcrs' class='reserve_inp' placeholder='请输入就餐人数' />
+      </view>
+      <view class='reserve_type reserve_man' style='border:none;'>
+        <view class='reserve_num'>联系电话</view>
+        <input type='number' placeholder-style='color: #999;font-size: 30rpx;' name='tel' class='reserve_inp' placeholder='请输入电话号码' />
+      </view>
+    </view>
+
+    <view class='reserve_marks reserve'>
+      <view>备注</view>
+      <textarea class='reserve_text' name='beizhu' placeholder='请输入备注信息'></textarea>
+    </view>
+
+     <!-- <view class='reserve reserve_marks'>
+      <view class='flex'>
+        <view class='reserve_warn'>
+          <icon type="warn" size="20" />
+          <view>提交预订费用</view>
+        </view>
+        <view class='reserve_money'>¥10元</view>
+      </view>
+      <view class='reserve_pay'>点击确定提交即付费</view>
+    </view>  -->
+    <view class='footer'>
+      <button formType="submit" style="background:{{color}}">立即预约</button>
+    </view>
+  </view>
+</form>

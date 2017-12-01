@@ -1,0 +1,70 @@
+<view class="font">
+  <!--头部等待支付开始  -->
+  <view class='order_pay'>
+    <image class='order_payimg' src="{{url}}{{store.logo}}"></image>
+    <view class='order_paywaite'>
+      <view>等待支付</view>
+      <!-- <view>逾期未支付，订单将自动取消</view>
+      <view>再来一单</view> -->
+    </view>
+  </view>
+
+  <!--订单详情开始  -->
+  <view class='order_info'>
+    <view class='order_lei flex'>
+      <text>类型</text>
+      <text>店内点餐</text>
+    </view>
+  </view>
+
+  <!--桌位类型部分  -->
+  <view class='order_info'>
+    <view class='order_lei flex'>
+      <text>桌号类型</text>
+      <view class="picker reserve_sele">{{tabletypename}}</view>
+    </view>
+    <view class='order_lei flex'>
+      <text>桌号</text>
+      <view class="picker reserve_sele">{{tablename}}</view>
+    </view>
+    <!-- <view class='order_lei flex'>
+      <text>桌号类型</text>
+      <picker bindchange="bindPickerChange" name='zwpicker' range-key='name' value="{{array[index]}}" range="{{array}}">
+        <view class="picker reserve_sele" wx:if="{{tabletype_id!=null}}">{{array[index].name}}</view>
+         <view class="picker reserve_sele" wx:if="{{tabletype_id==null}}">请选择桌子类型</view>
+      </picker>
+    </view>
+    <view class='order_lei flex' wx:if="{{tabletype_id!=null}}">
+      <text>桌号</text>
+      <picker bindchange="bindPickerChange_one" name='zwpicker' range-key='name' value="{{inde}}" range="{{not_use}}">
+        <text class="picker reserve_sele" wx:if="{{table_id!=null}}">{{not_use[inde].name}}</text>
+        <text class="picker reserve_sele" wx:if="{{table_id==null}}">请选择桌号</text>
+      </picker> -->
+    <!-- <text>{{not_use.name}}</text> -->
+    <!-- </view> -->
+    <view class='order_lei flex' style='height:120rpx;' wx:for="{{order}}">
+      <text style='width:500rpx;'>{{item.name}}</text>
+      <view>
+        <text class='order_num'>×{{item.num}}</text>
+        <text>¥ {{item.money}}</text>
+      </view>
+    </view>
+    <view class='order_lei flex' bindtap='coupon'>
+      <view>优惠券</view>
+      <view class='order_money' wx:if="{{pre==0}}">选择优惠券</view>
+      <view class='order_money' wx:if="{{pre!=0}}">-¥{{pre}}</view>
+    </view>
+    <view class='order_money order_lei order_shifu'>实付 ¥ {{totalPrice-pre}}</view>
+  </view>
+
+  <!--底部固定部分  -->
+
+  <view class='order_confirm'>
+    <view class='order_already'>
+      <text class='already_money'>待支付 ¥ {{totalPrice-pre}} | </text>
+      <text class='already_text'>已优惠 ¥ {{pre}}</text>
+    </view>
+    <button class='order_integral' formType="submit" bindtap='pay' style="background:{{color}}">确认支付</button>
+  </view>
+
+</view>

@@ -1,0 +1,43 @@
+/* integral.wxss */
+.no_coupons{
+width: 100%;
+height: 100%;
+position: fixed;
+}
+.noe_coupons_img{
+width: 500rpx;
+height: 600rpx;
+text-align: center;
+font-size: 32rpx;
+color: #999;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+}
+.noe_coupons_img image{
+width: 100%;
+}
+.integral{
+  width: 90%;
+  font-family: 微软雅黑;
+  height: 70rpx;
+  margin: 0 auto 0;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #333;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.integral>text{
+  width: 50%;
+  display: inline-block;
+  height: 100;
+}
+.integral>text:nth-child(1){
+  text-align: left;
+}
+.integral>text:nth-child(2){
+  text-align: right;
+}

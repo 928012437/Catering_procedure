@@ -1,0 +1,101 @@
+/* pages/order/order.wxss */
+page{
+  background-color: #EFEFF4;
+}
+.order_pay{
+  padding: 30rpx;
+  background-color: white;
+  display: flex;
+  border-bottom: 1rpx solid #E7E7E8;
+}
+.order_payimg{
+  width: 150rpx;
+  height: 150rpx;
+  background-color: green;
+  border-radius: 6rpx;
+}
+.order_paywaite{
+  margin-left: 30rpx;
+}
+.order_paywaite view:nth-child(1){
+  font-size: 40rpx;
+  color: #333;
+}
+.order_paywaite view:nth-child(2){
+  font-size: 26rpx;
+  color: #9A9A9A;
+  margin-top: 20rpx;
+}
+.order_paywaite view:nth-child(3){
+  font-size: 26rpx;
+  color: #0097FF;
+  margin-top: 20rpx;
+  border: 1rpx solid #0097FF;
+  border-radius: 4rpx;
+  width: 130rpx;
+  text-align: center;
+  line-height: 40rpx;
+  height: 40rpx;
+}
+/*———————————订单详情的样式———————————  */
+.order_info{
+  background-color: white;
+  margin-top: 10rpx;
+  padding-left: 30rpx;
+  border-top: 1rpx solid #E7E7E8;
+  border-bottom: 1rpx solid #E7E7E8;
+  color: #444;
+  font-size: 28rpx;
+}
+.order_lei{
+  height: 80rpx;
+  padding-right: 30rpx;
+  border-bottom: 1rpx solid #E7E7E8;
+}
+.order_num{
+  margin-right: 50rpx;
+}
+.order_money{
+  color: #FF7070
+}
+.order_shifu{
+  text-align: right;
+  line-height: 80rpx;
+}
+
+/*—————————固定在底部的内容—————————  */
+.order_confirm{
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  line-height: 98rpx;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+.order_already{
+  width: 60%;
+  height: 98rpx;
+  background-color: white;
+  text-align: center;
+  border-top: 1rpx solid #E7E7E8;  
+}
+.order_integral{
+  width: 40%;
+  height: 98rpx;
+  border-radius: 0rpx;
+  background-color: #0396FF;
+  text-align: center;
+}
+.already_money{
+  color: #333;
+  font-size: 30rpx;
+}
+.already_text{
+  color: #9A9A9A;
+  font-size: 24rpx;
+}
+.order_integral{
+  color: white;
+  font-size: 36rpx;
+}

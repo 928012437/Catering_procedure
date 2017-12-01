@@ -1,0 +1,64 @@
+{
+  "pages": [    
+    "zh_dianc/pages/home/home",
+    "zh_dianc/pages/home/sjfl",
+    "zh_dianc/pages/info/sjhj",
+    "zh_dianc/pages/dishinfo/dishinfo",
+    "zh_dianc/pages/order/order",
+    "zh_dianc/pages/coupons/coupons_details",
+    "zh_dianc/pages/coupons/shop_coupons",
+    "zh_dianc/pages/coupons/mine_coupons",
+    "zh_dianc/pages/info/info",
+    "zh_dianc/pages/list/list",
+    "zh_dianc/pages/list/choose/choose",
+    "zh_dianc/pages/list/reserveinfo/reserveinfo",
+    "zh_dianc/pages/list/waim/waim",
+    "zh_dianc/pages/index/index",
+    "zh_dianc/pages/reserve/reserve",
+    "zh_dianc/pages/reserve/reserveinfo",
+    "zh_dianc/pages/fukuan/fukuan",
+    "zh_dianc/pages/comment/comment",
+    "zh_dianc/pages/comsuc/comsuc",
+    "zh_dianc/pages/pay/pay",
+    "zh_dianc/pages/logs/logs",
+    "zh_dianc/pages/seller/seller",
+    "zh_dianc/pages/dish/dish",
+    "zh_dianc/pages/logs/integral"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#34AAFF",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#41B0FF",
+    "backgroundColor": "#fff",
+    "color": "#333",
+    "list": [
+      {
+        "pagePath": "zh_dianc/pages/home/home",
+        "text": "首页",
+        "iconPath": "zh_dianc/pages/images/shouye@2x.png",
+        "selectedIconPath": "zh_dianc/pages/images/shouye-fill@2x.png"
+      },
+      {
+        "pagePath": "zh_dianc/pages/list/list",
+        "text": "订单",
+        "iconPath": "zh_dianc/pages/images/dingdan@2x.png",
+        "selectedIconPath": "zh_dianc/pages/images/dingdan-fill@2x.png"
+      },
+      {
+        "pagePath": "zh_dianc/pages/logs/logs",
+        "text": "我的",
+        "iconPath": "zh_dianc/pages/images/wode@2x.png",
+        "selectedIconPath": "zh_dianc/pages/images/wode-fill@2x.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

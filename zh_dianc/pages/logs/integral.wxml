@@ -1,0 +1,11 @@
+<!--integral.wxml-->
+ <view class="no_coupons" wx:if="{{score==null||score==''}}">
+  <view class='noe_coupons_img'>
+    <image mode='widthFix' src='../images/integral.png'></image>
+    暂无积分,下单并且评论后才有积分哦
+  </view>
+</view>
+  <view class="integral" wx:for="{{score}}">
+      <text><text wx:if="{{item.type==1}}">+</text><text wx:if="{{item.type==2}}">-</text>{{item.score}}</text>
+      <text>{{item.cerated_time}}</text>
+</view>

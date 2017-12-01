@@ -1,0 +1,90 @@
+/* pages/reserve/reserve.wxss */
+page{
+  background-color: #F4F4F4;
+}
+.reserve{
+  background-color: white;
+  border-top: 1rpx solid #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+.reserve_arrow{
+  width: 20rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+.reserve_date{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reserve_date view{
+  font-size: 30rpx;
+  color: #333;
+}
+.reserve_type{
+  height: 90rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  padding: 0rpx 30rpx;
+}
+.reserve_sele{
+  color: #999;
+  font-size: 28rpx;
+  border: 1rp solid red;
+}
+.reserve_tab{
+  text-align: right;
+}
+.reserve_man{
+  display: flex;
+  align-items: center;
+}
+.reserve_num{
+  width: 300rpx;
+}
+.reserve_marks{
+  font-size: 28rpx;
+  background-color: white;
+  padding: 20rpx 30rpx 30rpx;
+}
+.reserve_text{
+  border: 1rpx solid #E6E6E6;
+  width: 94%;
+  height: 120rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  border-radius: 6rpx;
+}
+.reserve_pay{
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 15rpx;
+  text-indent: 2em;
+}
+.reserve_warn{
+  display: flex;
+  align-items: center;
+}
+.reserve_warn view{
+  margin-left: 15rpx;
+}
+.reserve_money{
+  color: #FF7272;
+}
+.footer{
+  padding: 20rpx 30rpx;
+  background-color: white;
+  border-top: 1rpx solid #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 92%;
+}
+.footer button{
+  color: white;
+  font-size: 36rpx;
+  background-color: #34AAFF;
+}

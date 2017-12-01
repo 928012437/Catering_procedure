@@ -1,0 +1,174 @@
+<!--pages/listinfo/listinfo.wxml-->
+<view class='font'>
+  <view class='list'>
+    <image class='list_img' src="{{imglink}}{{wmddinfo.store.logo}}"></image>
+    <!-- 未付款时候的状态  -->
+    <form bindsubmit="formSubmit" report-submit="true">
+      <view wx:if="{{wmddinfo.order.state=='1'}}" class='list_culom'>
+        <view class='list_time'>外卖订单</view>
+        <view class='list_user'>逾期未支付，订单将自动取消</view>
+        <view class='list_comple'>等待支付</view>
+        <view class='list_cancel'>
+          <button class='list_surplus1' data-wmddid="{{wmddinfo.order.id}}" bindtap='qxdd'>取消订单</button>
+          <button class='list_surplus' formType="submit" bindtap='onPay'>去支付</button>
+        </view>
+      </view>
+    </form>
+    <!-- 待接单的状态 -->
+    <view wx:if="{{wmddinfo.order.state=='2'}}" class='list_culom'>
+      <view class='list_time'>待接单</view>
+      <view class='list_user'>商家待接单</view>
+      <view class='list_comple'>等待接单</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' data-wmddtel="{{wmddinfo.store.tel}}" bindtap='txsj'>提醒商家</button>
+      </view>
+    </view>
+    <!-- 正在配送时候的状态  -->
+    <view wx:if="{{wmddinfo.order.state=='3'}}" class='list_culom'>
+      <view class='list_time'>外卖订单</view>
+      <view class='list_user'>订单正在配送，请耐心等候</view>
+      <view class='list_comple'>商家配送中</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' data-wmddid="{{wmddinfo.order.id}}" bindtap='qrsh'>确认收货</button>
+        <button class='list_surplus' data-wmddtel="{{wmddinfo.store.tel}}" bindtap='lxsj'>联系商家</button>
+      </view>
+    </view>
+
+    <!--已完成时候的状态  -->
+    <view wx:if="{{wmddinfo.order.state=='4'||wmddinfo.order.state=='6'}}" class='list_culom'>
+      <view class='list_time'>准时送达订单</view>
+      <view class='list_user'>订单已准时送达，感谢您使用。</view>
+      <view class='list_comple'>订单已完成</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' bindtap='zlyd'>再来一单</button>
+        <button wx:if="{{wmddinfo.order.state=='4'}}" class='list_surplus' data-wmddid="{{wmddinfo.order.id}}" bindtap='pingjia'>评价得积分</button>
+        <button wx:if="{{wmddinfo.order.state=='6'}}" class='list_surplus'>已评价</button>
+      </view>
+    </view>
+
+    <!-- 取消的状态 -->
+    <view wx:if="{{wmddinfo.order.state=='5'}}" class='list_culom'>
+      <view class='list_time'>外卖订单</view>
+      <view class='list_user'>您取消了订单，欢迎下次光临</view>
+      <view class='list_comple'>订单已取消</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' bindtap='zlyd'>再来一单</button>
+        <button class='list_surplus' data-wmddtel="{{wmddinfo.store.tel}}" bindtap='lxsj'>联系商家</button>
+      </view>
+    </view>
+
+     <!-- 待退款的状态 -->
+    <view wx:if="{{wmddinfo.order.state=='7'}}" class='list_culom'>
+      <view class='list_time'>外卖订单</view>
+      <view class='list_user'>您申请了退款，欢迎下次光临</view>
+      <view class='list_comple'>等待商家审核中</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' bindtap='zlyd'>再来一单</button>
+        <button class='list_surplus' data-wmddtel="{{wmddinfo.store.tel}}" bindtap='lxsj'>联系商家</button>
+      </view>
+    </view>
+
+     <!-- 退款成功的状态 -->
+    <view wx:if="{{wmddinfo.order.state=='8'}}" class='list_culom'>
+      <view class='list_time'>外卖订单</view>
+      <view class='list_user'>您的退款已成功，欢迎下次光临</view>
+      <view class='list_comple'>退款成功</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' bindtap='zlyd'>再来一单</button>
+        <button class='list_surplus' data-wmddtel="{{wmddinfo.store.tel}}" bindtap='lxsj'>联系商家</button>
+      </view>
+    </view>
+
+     <!-- 退款失败的状态 -->
+    <view wx:if="{{wmddinfo.order.state=='9'}}" class='list_culom'>
+      <view class='list_time'>外卖订单</view>
+      <view class='list_user'>您的退款申请未通过审核</view>
+      <view class='list_comple'>退款失败</view>
+      <view class='list_cancel'>
+        <button class='list_surplus1' bindtap='zlyd'>再来一单</button>
+        <button class='list_surplus' data-wmddtel="{{wmddinfo.store.tel}}" bindtap='lxsj'>联系商家</button>
+      </view>
+    </view> 
+  </view>
+  <view class='list_banner'>
+    <view class='list_one flex' bindtap='index'>
+      <view class="list_onelogo">
+        <image class="list_oneimg" src="{{imglink}}{{wmddinfo.store.logo}}"></image>
+        <view>{{wmddinfo.store.name}}</view>
+      </view>
+      <image class='list_orrow' src='../../images/Path@2x.png'></image>
+    </view>
+    <view class='list_one flex' wx:for="{{wmddinfo.good}}">
+      <view>{{item.name}}</view>
+      <view class='list_flex'>
+        <view class='list_text'>×{{item.number}}</view>
+        <view class='list_text2'>¥{{item.money}}</view>
+      </view>
+    </view>
+
+    <view class='list_one flex'>
+      <view>餐盒</view>
+      <view>¥{{wmddinfo.order.box_fee}}</view>
+    </view>
+    <view class='list_one flex'>
+      <view>配送费</view>
+      <view>¥{{wmddinfo.order.freight}}</view>
+    </view>
+    <view class='list_one flex'>
+      <view>优惠</view>
+      <view>-¥{{wmddinfo.order.preferential}}</view>
+    </view>
+    <view class='list_one flex' wx:if="{{wmddinfo.order.note!=''}}" style='height:auto;padding:20rpx 0'>
+      <view style='width:100rpx;'>备注</view>
+      <view style='width:600rpx;text-align:right'>{{wmddinfo.order.note}}</view>
+    </view>
+    <view class='list_one flex'>
+      <view class='list_tel' catchtap="call_phone">
+        <image src='../../images/telephone.png'></image>
+        <view>联系商家</view>
+      </view>
+      <view>实付¥{{wmddinfo.order.money}}</view>
+    </view>
+  </view>
+
+  <view class='list_info'>
+    <view class='list_give'>配送信息</view>
+    <view class='give_time flex'>
+      <view>送达时间</view>
+      <view class='five_text'>{{wmddinfo.order.delivery_time}}</view>
+    </view>
+
+    <view class='give_time1'>
+      <view>收货地址</view>
+      <view class='list_map five_text'>
+        <view>{{wmddinfo.order.address}}</view>
+        <view style='margin-top:10rpx;'>{{wmddinfo.order.name}} {{wmddinfo.order.tel}}</view>
+      </view>
+    </view>
+
+    <view class='give_time flex'>
+      <view>配送方式</view>
+      <view class='five_text'>商家配送</view>
+    </view>
+
+  </view>
+
+  <view class='list_info'>
+    <view class='list_give'>订单信息</view>
+    <view class='give_time flex'>
+      <view>订单号</view>
+      <view class='five_text'>{{wmddinfo.order.order_num}}</view>
+    </view>
+
+    <view class='give_time flex'>
+      <view>支付方式</view>
+      <view class='five_text'>在线支付</view>
+    </view>
+
+    <view class='give_time flex'>
+      <view>下单时间</view>
+      <view class='five_text'>{{wmddinfo.order.time}}</view>
+    </view>
+
+  </view>
+</view>

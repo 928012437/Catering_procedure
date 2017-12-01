@@ -1,0 +1,230 @@
+/* pages/pay/pay.wxss */
+page{
+  background-color: #F5F5F5;
+}
+.pay_header{
+  background-color: #34AAFF;
+  color: white;
+  padding: 30rpx;
+}
+.pay_headtitle{
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  text-align: center;
+}
+.pay_headtitle image{
+  width: 20rpx;
+  height: 30rpx;
+  margin-left: 30rpx;
+}
+.pay_man{
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.pay_give{
+  background-color: white;
+  padding: 25rpx 30rpx 30rpx 30rpx;
+  margin: 20rpx 0rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pay_quick{
+  font-size: 30rpx;
+}
+.pay_left{
+  margin-top: 10rpx;
+  display: flex;
+}
+.pay_bird{
+  background-color: #34AAFF;
+  width: 100rpx;
+  height: 30rpx;
+  border-radius: 6rpx;
+  color: white;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 30rpx;
+}
+.pay_time{
+  border: 1rpx solid #34AAFF;
+  width: 75rpx;
+  height: 25rpx;
+  line-height: 25rpx;
+  text-align: center;
+  color: #34AAFF;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  border-radius: 6rpx;
+}
+.pay_over{
+  color: #34AAFF;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+}
+.pay_right{
+  width: 20rpx;
+  height: 30rpx;
+}
+.pay_info{
+  padding: 25rpx 30rpx 0rpx 30rpx;
+  background-color: white;
+}
+.pay_infotitle{
+  font-size: 30rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.pay_infotype{
+  font-size: 28rpx;
+}
+.pay_infotype{
+  display: flex;
+  justify-content: space-between;
+}
+.pay_rice{
+  font-size: 20rpx;
+  color: #999;
+}
+.pay_flex{
+  display: flex;
+}
+.pay_flex view:nth-child(2){
+  margin-left: 50rpx;
+}
+.pay{
+  padding: 0rpx 10rpx 20rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.pay1{
+  padding: 20rpx 10rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.pay_lunch{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+}
+.reduce_flex{
+  display: flex;
+  align-items: center;
+}
+.pai_reduce{
+  width: 35rpx;
+  height: 35rpx;
+  background-color: #F07373;
+  color: white;
+  text-align: center;
+  line-height: 35rpx;
+  border-radius: 6rpx;
+  margin-right: 10rpx;
+}
+.pay_count{
+  color: #333;
+  text-align: right;
+}
+.pay_count1{
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+.pay_count2{
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.pay_count3{
+  font-size: 42rpx;
+  font-weight: bold;
+}
+.pay_remarks{
+  background-color: white;
+  padding: 0rpx 30rpx;
+  margin-top: 20rpx;
+  border-top: 1rpx solid #eeeeee;
+  border-bottom: 1rpx solid #eeeeee;
+  font-size: 30rpx;
+}
+.remarks_on{
+  height: 89rpx;
+  color: #333;
+  line-height: 89rpx;
+  /* border-bottom: 1rpx solid #eeeeee; */
+}
+.weui-cell{
+  padding:10rpx 30rpx; 
+  font-size: 28rpx; 
+}
+.weui-cells__title{
+  font-size: 28rpx;
+  color: black;
+  margin: 10rpx 0;
+  padding-left:30rpx;
+  padding-right: 30rpx; 
+}
+.weui-cells__title text{
+  color: #999;
+}
+.weui-cell__hd{
+ margin-top: 7rpx;
+}
+.weui-label{
+  width:140rpx;
+}
+.pay_anonymous{
+  height: 89rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eeeeee;
+  align-items: center;
+}
+.pay_fixed{
+  position: fixed;
+  height: 90rpx;
+  width: 101%;
+  bottom:-2rpx;
+  left: -2rpx;
+  z-index: 99;
+  display: flex;
+}
+.pay_fixed_left{
+  width: 61%;
+  height: 90rpx;
+  background-color: #3D3D3D;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.pay_fixed_left2{
+  margin-left: 50rpx;
+}
+.pay_fixed_right{
+  width: 40%;
+  height: 90rpx;
+  color: white;
+  font-size: 36rpx;
+  background-color: #00D762;
+  border-radius: 0rpx;
+  line-height: 90rpx;
+}
+.pay_discount{
+  color: #AEAEAE;
+  font-size: 30rpx;
+  margin-left: 15rpx;
+  display: flex;
+}
+.kong{
+  height: 120rpx;
+}
+.fixed_text{
+  font-size: 42rpx;
+  font-weight: bold;
+  display: flex;
+}
+
+
+

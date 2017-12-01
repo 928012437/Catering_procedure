@@ -1,0 +1,168 @@
+<form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+  <view class="font">
+    <!--头部开始  -->
+    <view class='pay_header' bindtap='map' style="background:{{color}}">
+      <view wx:if="{{user_address==null}}">
+        <view class='pay_headtitle'>
+          <view wx:if="{{users.user_address!=''}}">{{users.user_address}}</view>
+          <view wx:if="{{users.user_address==''}}">请添加收货地址</view>
+          <image src='../images/baise.png'></image>
+        </view>
+        <view class='pay_man' wx:if="{{users.user_address!=''}}">{{users.user_name}}</view>
+      </view>
+      <view wx:if="{{user_address!=null}}">
+        <view class='pay_headtitle'>
+          <view>{{user_address}}</view>
+          <!-- <view>请添加收货地址</view> -->
+          <image src='../images/baise.png'></image>
+        </view>
+        <view class='pay_man'>{{user_name}}</view>
+      </view>
+    </view>
+    <!--头部结束  -->
+
+    <!--配送商家部分开始  -->
+    <view class='pay_give'>
+      <view>
+        <view class='pay_quick'>尽快送达 [ 预计{{sd_time}}内送达，请耐心等待 ]</view>
+        <view class="pay_left">
+          <view class='pay_bird' wx:if="{{store.ps_mode==2}}">商家配送</view>
+          <view class='pay_bird' wx:if="{{store.ps_mode==1}}">达达配送</view>
+          <!-- <view class='pay_time'>准时达</view> -->
+          <!-- <view class='pay_over'>超时10分钟享赔付</view> -->
+        </view>
+      </view>
+      <image class='pay_right' src='../images/huise@2x.png'></image>
+    </view>
+    <!--配送商家部分结束  -->
+    <!-- <view class="classname">收货地址到商家的距离：{{distance}}</view> -->
+    <!--外卖订单的详情  -->
+    <view class='pay_info'>
+      <view class='pay_infotitle'>{{store.name}}</view>
+      <!--第一个菜品开始  -->
+      <view class='pay' wx:for="{{order}}" wx:if="{{item.num>0}}">
+        <view>
+          <view class='pay_infotype'>
+            <view>{{item.name}}</view>
+            <view class='pay_flex'>
+              <view>×{{item.num}}</view>
+              <view>¥{{item.money}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- <view class='pay_rice'>不含米饭</view> -->
+      </view>
+      <!--餐盒  -->
+      <view class='pay1 pay_lunch'>
+        <view>餐盒费</view>
+        <view>¥{{totalbox}}</view>
+      </view>
+      <!--配送费  -->
+      <view class='pay1 pay_lunch'>
+        <view>配送费</view>
+        <view>¥{{fre}}</view>
+      </view>
+      <!--优惠券  -->
+      <view class='pay1 pay_lunch' bindtap='coupon'>
+        <view>优惠券</view>
+        <view wx:if="{{pre==0}}">
+          <text wx:if="{{xyh_open==1}}">
+            <text wx:if="{{new_user==1}}">新用户不享受此优惠</text>
+          <text wx:if="{{new_user==2}}">请选择优惠券</text>
+          </text>
+          <text wx:if="{{xyh_open==2}}">
+            <text>请选择优惠券</text>
+          </text>
+        </view>
+        <view wx:if="{{pre!=0}}">
+          <text wx:if="{{xyh_open==1}}">
+            <text wx:if="{{new_user==1}}">新用户不享受此优惠</text>
+          <text wx:if="{{new_user==2}}">
+              <text wx:if="{{pre==0}}">请选择优惠券</text>
+          <text wx:if="{{pre!=0}}">-{{pre}}</text>
+          </text>
+          </text>
+          <text wx:if="{{xyh_open==2}}">
+            <text wx:if="{{new_user==1}}">
+              <text wx:if="{{pre==0}}">请选择优惠券</text>
+          <text wx:if="{{pre!=0}}">-{{pre}}</text>
+          </text>
+          <text wx:if="{{new_user==2}}">
+              <text wx:if="{{pre==0}}">请选择优惠券</text>
+          <text wx:if="{{pre!=0}}">-{{pre}}</text>
+          </text>
+          </text>
+        </view>
+        <!-- <view wx:if="{{new_user==1}}">新用户不享受此优惠</view> -->
+      </view>
+      <!--在线立减部分  -->
+      <view class='pay1 pay_lunch'>
+        <view class='reduce_flex'>
+          <view class='pai_reduce'>减</view>
+          <view>在线支付立减优惠</view>
+        </view>
+        <text wx:if="{{xyh_open==1}}">
+          <text wx:if="{{new_user==1}}">新用户不享受此优惠</text>
+        <text wx:if="{{new_user==2}}">
+            <text wx:if="{{totalPrice>=yh}}">-¥{{cut}}</text>
+        <text wx:if="{{totalPrice<yh}}">-¥0</text>
+        </text>
+
+        </text>
+        <text wx:if="{{xyh_open==2}}">
+          <text wx:if="{{totalPrice>=yh}}">-¥{{cut}}</text>
+        <text wx:if="{{totalPrice<yh}}">-¥0</text>
+        </text>
+      </view>
+      <!--新用户下单立减  -->
+      <view class='pay1 pay_lunch' wx:if="{{xyh_open==1&&new_user==1}}">
+        <view class='reduce_flex'>
+          <view class='pai_reduce'>减</view>
+          <view>新用户下单立减</view>
+        </view>
+        <view>-¥{{xyh_money}}</view>
+      </view>
+      <!--小计  -->
+      <view class='pay1 pay_count' style='border:none;'>
+        <text class='pay_count1'>小计</text>
+        <text class='pay_count2'>¥</text>
+        <text class='pay_count3'>{{money}}</text>
+      </view>
+    </view>
+    <view class="weui-cells__title">订单备注<text>（输入备注内容（可不填））</text></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" bindblur='ddbz' style="height: 3.3em" />
+        </view>
+      </view>
+    </view>
+    <view class='pay_remarks'>
+      <view class='remarks_on'>微信支付</view>
+    </view>
+    <view class='kong'></view>
+    <view class='pay_fixed'>
+      <view class='pay_fixed_left'>
+        <text class='fixed_text pay_fixed_left2'>¥</text>
+        <text class='fixed_text'>{{money}}</text>
+        <text class='pay_discount'>
+          <text>| 已优惠¥</text>
+        <text wx:if="{{xyh_open==1}}">
+            <text wx:if="{{new_user==1}}">{{xyh_money}}</text>
+        <!-- <text wx:if="{{new_user==2}}">{{cut+pre}}</text> -->
+        <text wx:if="{{new_user==2&&totalPrice>=yh}}">{{cut+pre}}</text>
+        <text wx:if="{{new_user==2&&totalPrice<yh}}">{{pre}}</text>
+        </text>
+        <text wx:if="{{xyh_open==2}}">
+            <!-- <text wx:if="{{new_user==1}}">{{cut+pre}}</text>
+        <text wx:if="{{new_user==2}}">{{cut+pre}}</text> -->
+        <text wx:if="{{totalPrice>=yh}}">{{cut+pre}}</text>
+        <text wx:if="{{totalPrice<yh}}">{{pre}}</text>
+        </text>
+        <!-- <text wx:if="{{xyh_open==1&&new_user==1}}">{{xyh_money}}6</text> -->
+        </text>
+      </view>
+      <button class='pay_fixed_right' formType="submit" bindtap='pay' style="background:{{color}}">去支付</button>
+    </view>
+  </view>
+</form>
